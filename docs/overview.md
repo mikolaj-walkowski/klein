@@ -41,11 +41,11 @@ are supported for all the listed entities above via the following operator table
 | `-`      | Subtraction                                   |
 | `* s`    | Uniform scaling by a float or int `s`         |
 | `/ s`    | Uniform inverse scaling by a float or int `s` |
-| `*`      | [Geometric Product](../api/gp)                |
-| `^`      | [Exterior Product](../api/ext)                |
-| `&`      | [Regressive Product](../api/reg)              |
-| `|`      | [Symmetric Inner Product](../api/dot)         |
-| `!`      | [Poincaré Dual](../api/dual)                  |
+| `*`      | [Geometric Product](./api/gp)                |
+| `^`      | [Exterior Product](./api/ext)                |
+| `&`      | [Regressive Product](./api/reg)              |
+| `\|`      | [Symmetric Inner Product](./api/dot)         |
+| `!`      | [Poincaré Dual](./api/dual)                  |
 
 !!! note
 
