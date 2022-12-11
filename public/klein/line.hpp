@@ -5,7 +5,8 @@
 
 namespace kln
 {
-/// \defgroup lines Lines
+    class motor;
+    /// \defgroup lines Lines
 /// Klein provides three line classes: "line", "branch", and "ideal_line". The
 /// line class represents a full six-coordinate bivector. The branch contains
 /// three non-degenerate components (aka, a line through the origin). The ideal
@@ -480,7 +481,7 @@ class line final
 {
 public:
     line() noexcept = default;
-
+    line(motor l); 
     /// A line is specifed by 6 coordinates which correspond to the line's
     /// [Plücker
     /// coordinates](https://en.wikipedia.org/wiki/Pl%C3%BCcker_coordinates).

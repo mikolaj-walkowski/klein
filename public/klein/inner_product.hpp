@@ -9,7 +9,7 @@
 #include "rotor.hpp"
 
 namespace kln
-{
+{   
 /// \defgroup dot Symmetric Inner Product
 ///
 /// The symmetric inner product takes two arguments and contracts the lower

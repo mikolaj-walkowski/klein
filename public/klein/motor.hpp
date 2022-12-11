@@ -82,6 +82,7 @@ class motor final
 public:
     motor() noexcept = default;
 
+    motor(line l): p1_(l.p1_),p2_(l.p2_){}
     /// Direct initialization from components. A more common way of creating a
     /// motor is to take a product between a rotor and a translator.
     /// The arguments coorespond to the multivector
@@ -600,5 +601,7 @@ public:
     __m128 flip = _mm_set_ps(-0.f, -0.f, -0.f, 0.f);
     return {_mm_xor_ps(m.p1_, flip), _mm_xor_ps(m.p2_, flip)};
 }
+
+
 } // namespace kln
   /// @}
