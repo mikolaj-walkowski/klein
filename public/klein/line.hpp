@@ -588,6 +588,11 @@ public:
         return out;
     }
 
+    [[nodiscard]] line mult(line other) const noexcept
+    {
+        return line(_mm_mul_ps(p1_, other.p1_), _mm_mul_ps(p2_, other.p2_));
+    }
+
     /// Bitwise comparison
     [[nodiscard]] bool KLN_VEC_CALL operator==(line other) const noexcept
     {
