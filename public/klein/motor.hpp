@@ -610,7 +610,7 @@ namespace kln
         operator motor() const noexcept
         {
             motor out;
-            out.p1_ = _mm_set_ss(1.f);
+            out.p1_ = {1.f,0.f,0.f,0.f};
             out.p2_ = _mm_setzero_ps();
 
             return out;
