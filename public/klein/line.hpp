@@ -491,8 +491,8 @@ public:
     /// $$a\mathbf{e}_{01} + b\mathbf{e}_{02} + c\mathbf{e}_{03} +\
     /// d\mathbf{e}_{23} + e\mathbf{e}_{31} + f\mathbf{e}_{12}$$
     line(float a, float b, float c, float d, float e, float f) noexcept
-        : p1_{_mm_set_ps(f, e, d, 0.f)}
-        , p2_{_mm_set_ps(c, b, a, 0.f)}
+        : p1_{_mm_set_ps(f, e, d, 0.f)} // e12, e31, e23
+        , p2_{_mm_set_ps(c, b, a, 0.f)} // e03, e02, e01
     {}
 
     line(__m128 xmm1, __m128 xmm2) noexcept
@@ -515,6 +515,12 @@ public:
     [[nodiscard]] float norm() noexcept
     {
         return std::sqrt(squared_norm());
+    }
+
+    void grade2() noexcept {
+        __m128 a = {0.f,1.f,1.f,1.f };
+        p1_        = _mm_mul_ps(p1_, a);
+        p2_        = _mm_mul_ps(p2_, a);
     }
 
     /// If a line is constructed as the regressive product (join) of
@@ -591,6 +597,11 @@ public:
     [[nodiscard]] line mult(line other) const noexcept
     {
         return line(_mm_mul_ps(p1_, other.p1_), _mm_mul_ps(p2_, other.p2_));
+    }
+
+    line div(line other) const noexcept
+    {
+        return line(_mm_div_ps(p1_, other.p1_), _mm_div_ps(p2_, other.p2_));
     }
 
     /// Bitwise comparison
